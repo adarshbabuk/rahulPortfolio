@@ -3,7 +3,26 @@
 Personal portfolio site for **Rahul Vinod**, Human Capital Consultant — Total Rewards,
 Organizational Design, Performance Management and HR Analytics.
 
-🔗 **Live site:** `https://adarshbabuk.github.io/rahulPortfolio/`
+## Two versions
+
+The site ships in two variants, each on its own branch, both published from a single
+GitHub Pages site:
+
+| Branch | Live URL | Difference |
+| --- | --- | --- |
+| `main` | <https://adarshbabuk.github.io/rahulPortfolio/> | Typography-led hero, no photograph |
+| `photo` | <https://adarshbabuk.github.io/rahulPortfolio/photo/> | Adds a portrait to the hero and the nav |
+
+Both are cross-linked in the footer, so visitors can switch between them.
+
+`photo` branches from `main` and changes as little as possible — it adds
+`assets/img/rahul-vinod.jpg` and `assets/css/photo.css`, and edits `index.html`.
+`assets/css/style.css` is **identical on both branches**, so shared styling changes
+merge cleanly:
+
+```bash
+git checkout photo && git merge main
+```
 
 ---
 
@@ -57,14 +76,14 @@ Then visit <http://localhost:8000>.
 
 ## Deploy to GitHub Pages
 
-1. Create a repository on GitHub and push this folder to it.
-2. In the repo, go to **Settings → Pages**.
-3. Under **Build and deployment → Source**, choose **GitHub Actions**.
+Set **Settings → Pages → Source** to **GitHub Actions**.
 
-The included workflow publishes the site on every push to `main`.
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) then runs on every push to
+either branch. It checks out `main` into the site root and `photo` into `photo/`,
+and publishes them together — so one deploy keeps both versions current.
 
-> Prefer no workflow? Set **Source** to *Deploy from a branch* → `main` / `/ (root)` instead.
-> The `.nojekyll` file makes sure GitHub serves the folder as-is.
+> Using *Deploy from a branch* instead publishes only the branch you select, and the
+> workflow's deploy step will fail. Pick one mode or the other, not both.
 
 ## Customising
 

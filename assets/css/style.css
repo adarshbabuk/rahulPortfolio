@@ -807,8 +807,20 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   font-size: 13.5px;
   color: var(--text-mute);
 }
+.foot__links { display: flex; align-items: center; gap: 18px; }
 .foot__top { transition: color .2s ease; }
 .foot__top:hover { color: var(--accent); }
+.foot__alt {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--text-soft);
+  transition: color .2s ease, border-color .2s ease, background-color .2s ease;
+}
+.foot__alt:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-wash); }
 
 /* ---------- reveal animation ----------
    Content is visible by default. The hidden start state is only applied once

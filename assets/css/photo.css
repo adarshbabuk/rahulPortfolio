@@ -1,0 +1,100 @@
+/* ============================================================
+   Rahul Vinod — Portfolio (photo variant)
+
+   Layered on top of style.css, which stays byte-identical to the
+   `main` branch so shared styling changes merge cleanly. Everything
+   specific to the portrait lives here.
+   ============================================================ */
+
+/* ---------- nav avatar ----------
+   Replaces the "RV" monogram with the headshot. */
+.brand__mark--photo {
+  padding: 0;
+  overflow: hidden;
+  background: none;
+  border: 1px solid var(--line);
+}
+.brand__mark--photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- hero: text beside portrait ---------- */
+.hero__lead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(30px, 6vw, 76px);
+  align-items: center;
+}
+
+/* The name gives up some size to make room for the portrait. */
+.hero--photo .hero__name {
+  font-size: clamp(2.7rem, 7.4vw, 5.4rem);
+}
+.hero--photo .hero__lede {
+  max-width: 46ch;
+}
+
+.portrait {
+  position: relative;
+  width: min(280px, 62vw);
+  aspect-ratio: 1;
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+/* Offset copper frame sitting behind the photo. */
+.portrait::before {
+  content: "";
+  position: absolute;
+  inset: 16px -16px -16px 16px;
+  border: 1.5px solid var(--accent);
+  border-radius: var(--r-lg);
+  pointer-events: none;
+}
+
+.portrait img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-md);
+  background: var(--surface-2);
+}
+
+/* Caption sits under the frame, so it clears the offset border. */
+.portrait figcaption {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 26px);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-mute);
+  white-space: nowrap;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) {
+  .hero__lead {
+    grid-template-columns: 1fr;
+    justify-items: start;
+    gap: 34px;
+  }
+  /* Lead with the face on narrow screens. */
+  .portrait { order: -1; }
+  .hero--photo .hero__lede { max-width: 62ch; }
+}
+
+@media (max-width: 760px) {
+  .portrait { width: min(220px, 56vw); }
+  .portrait figcaption { display: none; }
+}
+
+@media print {
+  .portrait::before { display: none; }
+  .portrait img { box-shadow: none; border: 1px solid #ccc; }
+}

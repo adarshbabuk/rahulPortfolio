@@ -17,6 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/photo.css">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 </head>
 <body>
@@ -28,7 +29,9 @@
 <header class="nav" id="nav">
   <div class="wrap nav__inner">
     <a class="brand" href="#top">
-      <span class="brand__mark">RV</span>
+      <span class="brand__mark brand__mark--photo">
+        <img src="assets/img/rahul-vinod.jpg" alt="" width="400" height="400" loading="eager" decoding="async">
+      </span>
       <span class="brand__text">Rahul Vinod</span>
     </a>
 
@@ -56,9 +59,11 @@
 <main id="main">
 
   <!-- ===================== HERO ===================== -->
-  <section class="hero" id="top">
+  <section class="hero hero--photo" id="top">
     <div class="hero__glow" aria-hidden="true"></div>
     <div class="wrap hero__inner">
+     <div class="hero__lead">
+      <div class="hero__text">
       <p class="eyebrow reveal">Human Capital Consultant</p>
       <h1 class="hero__name reveal">Rahul&nbsp;Vinod</h1>
       <p class="hero__lede reveal">
@@ -81,6 +86,14 @@
           Email
         </a>
       </div>
+      </div>
+
+      <figure class="portrait reveal">
+        <img src="assets/img/rahul-vinod.jpg" alt="Portrait of Rahul Vinod"
+             width="400" height="400" loading="eager" decoding="async">
+        <figcaption>Rahul Vinod</figcaption>
+      </figure>
+     </div>
 
       <dl class="stats reveal">
         <div class="stat"><dt>Years in industry</dt><dd>3<span>+</span></dd></div>
@@ -448,7 +461,10 @@
   <div class="wrap foot__inner">
     <p>&copy; <span id="year">2026</span> Rahul Vinod</p>
     <p class="foot__meta">Human Capital Consultant · Built with plain HTML, CSS &amp; JavaScript</p>
-    <a href="#top" class="foot__top">Back to top &uarr;</a>
+    <div class="foot__links">
+      <a class="foot__alt" href="../">View without photo &rarr;</a>
+      <a href="#top" class="foot__top">Back to top &uarr;</a>
+    </div>
   </div>
 </footer>
 
