@@ -3,7 +3,7 @@
 Personal portfolio site for **Rahul Vinod**, Human Capital Consultant — Total Rewards,
 Organizational Design, Performance Management and HR Analytics.
 
-🔗 **Live site:** `https://<your-github-username>.github.io/<repo-name>/`
+🔗 **Live site:** `https://adarshbabuk.github.io/rahulPortfolio/`
 
 ---
 
